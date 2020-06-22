@@ -1,7 +1,164 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+
 * {
-    background-color: #202020;
     color: #B8ACD1;
     font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #202020;
+}
+
+/* Container */
+
+#container {
+    display: grid;
+    grid-template-areas:"title title"
+                        "header header"
+                        "main aside"
+                        "footer footer";
+    grid-template-rows: 1fr 1fr 7fr 1fr;
+    grid-template-columns: 7fr 3fr;
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/rainbow.png");
+    background-repeat: repeat;
+}
+
+/* Header */
+
+#container > h1 {
+    margin: 1em 0 1em 1em;
+    grid-area: title;
+}
+
+header {
+    grid-area: header;
+    background-color: #B8ACD1;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+    margin: 0 1em 2em 1em;
+}
+
+header > button {
+
+    background-color: transparent;
+    border: transparent;
+    height: auto;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    outline: none;
+    margin: 0.5em 0;
+}
+
+header > button > a {
+    color:#202020;
+    text-decoration: none;
+}
+
+header > button > a:hover {
+    text-shadow: 3px 1px 6px #202020;
+}
+
+/* Aside */
+
+aside {
+    grid-area: aside;
+    background-color: #B8ACD1;
+    border-radius: 10px;
+    color:#202020;
+    margin-right: 1em;
+    padding: 0 1em;
+}
+
+aside > p {
+    background-color: #B8ACD1;
+    color:#202020;
+}
+
+aside > img {
+    float: left;
+    height: 13em;
+    padding: 0 1em 0 0;
+}
+
+/* Main */
+
+main {
+    grid-area: main;
+    margin-left: 1em;
+    padding: 0 1em;
+    background-color: rgba(32, 32, 32, 0.6);
+    border-radius: 10px;
+    justify-self: center;
+}
+
+main ul {
+    list-style: none;
+}
+
+main > ul > li {
+    padding: 2em;
+    
+}
+
+main > ul > li::before {
+    content: "➲ ";
+}
+
+main li > ul > li::before {
+    content: "⤷ ";
+}
+
+main span {
+    font-weight: bold;
+}
+
+/* Footer */
+
+footer {
+    background-color: #B8ACD1;
+    color:#202020;
+    grid-area: footer;
+    border-radius: 10px 10px 0 0;
+    margin: 2em 1em 0 1em;
+    padding: 1em;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+/* Media Queries */
+
+@media(max-width: 980px) {
+
+    aside > img {
+        height: 8em;
+    }
+}
+
+@media(max-width: 720px) {
+
+    #container {
+        display: grid;
+        grid-template-areas:"title"
+                            "header"
+                            "main"
+                            "aside"
+                            "footer";
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: 1fr;
+        height: 100%;
+        width: 100%;
+    }
+
+    aside {
+        margin-left: 1em;
+    }
+
+    aside > img {
+        height: 12em;
+    }
 }
