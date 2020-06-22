@@ -9,6 +9,7 @@
     <div id="container">
         <h1>My Skills</h1>
         <header>
+            <button id="burger"><a>☰</a></button>
             <button><a href="index.html">Home</a></button>
             <button><a href="education.html">Education</a></button>
             <button><a href="experience.html">Experience</a></button>
@@ -52,8 +53,15 @@
         </aside>
 
         <footer>
-            Porfolio by Álvaro Gómez for GeeksHubs Bootcamp 2020 ©
+            <p>Porfolio by Álvaro Gómez for GeeksHubs Bootcamp 2020 ©</p>
+            <div>
+                <label for="dark">Dark Mode</label>
+                <input type="radio" name="theme" id="dark" checked>
+                <label for="light">Light Mode</label>
+                <input type="radio" name="theme" id="light">
+            </div> 
         </footer>
     </div>
+    <script src="js/general.js"></script>
 </body>
 </html>
