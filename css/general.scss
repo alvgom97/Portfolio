@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+$background: #202020;
+$color: #B8ACD1;
+
+:root {
+
+    --background: #202020;
+    --color: #B8ACD1;
+}
+
+* {
+    color: var(--color);
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    //background-color: var(--background);
+    background-color: $background;
+    background-image: url("../img/rainbow.png");
+
+    #container {
+        display: grid;
+        grid-template-areas:"title title"
+                            "header header"
+                            "main aside"
+                            "footer footer";
+        grid-template-rows: 1fr 1fr 7fr 1fr;
+        grid-template-columns: 7fr 3fr;
+        height: 100%;
+        width: 100%;
+        background-repeat: repeat;
+
+        @media(max-width: 720px) {
+
+            grid-template-areas:"title"
+                                "header"
+                                "main"
+                                "aside"
+                                "footer";
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-columns: 1fr;
+        }
+
+        > h1 {
+            margin: 1em 0 1em 1em;
+            grid-area: title;
+            color: $color;
+        }
+
+        header {
+            grid-area: header;
+            background-color: var(--background);
+            display: flex;
+            justify-content: space-around;
+            border-radius: 10px;
+            margin: 0 1em 2em 1em;
+            box-shadow: 0px 0px 8px 3px $color;
+
+            @media(max-width: 720px){
+
+                flex-direction: column;
+            }
+
+            > button {
+
+                background-color: transparent;
+                border: transparent;
+                height: auto;
+                font-weight: bold;
+                font-size: 1.2em;
+                cursor: pointer;
+                outline: none;
+                margin: 0.5em 0;
+
+                @media(max-width: 720px){
+
+                    display: none;
+                }
+            }
+
+            #burger {
+                display: none;
+
+                @media(max-width: 720px){
+
+                    display: block;
+                }
+            }
+
+            > button > a {
+                color: var(--color);
+                text-decoration: none;
+
+                &:hover{
+                    text-shadow: 3px 1px 6px var(--color);
+                }
+                
+            }
+        }
+
+        aside {
+            grid-area: aside;
+            background-color: var(--background);
+            border-radius: 10px;
+            color:var(--color);
+            margin-right: 1em;
+            padding: 0 1em;
+            box-shadow: 0px 0px 8px 3px $color;
+
+            @media(max-width: 720px){
+
+                margin-left: 1em;
+            }
+
+            > p {
+                background-color: var(--background);
+                color: var(--color);
+            }
+
+            > img {
+                float: left;
+                height: 13em;
+                margin-right: 1em;
+                border-radius: 10px;
+
+                @media(max-width: 980px) {
+
+                        height: 8em;
+                }
+
+                @media(max-width: 720px){
+
+                    height: 12em;
+                }
+            }
+        }
+
+        main {
+            grid-area: main;
+            margin-left: 1em;
+            padding: 0 1em;
+            background-color: rgba(32, 32, 32, 0.6);
+            border-radius: 10px;
+            justify-self: center;
+
+            @media(max-width: 720px){
+
+                margin-bottom: 1em;
+            }
+
+            ul {
+                list-style: none;
+
+                @media(max-width: 720px){
+
+                    padding: 0;
+                }
+    
+
+                > li {
+                    padding: 2em;
+
+                    @media(max-width: 720px){
+
+                        padding: 0.5em;
+                    }
+
+                    &::before {
+                        content: "➲ ";
+                    }
+                }
+            }
+
+            li > ul > li::before {
+                content: "⤷ ";
+            }
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        footer {
+            background-color: var(--background);
+            grid-area: footer;
+            border-radius: 10px 10px 0 0;
+            margin: 2em 1em 0 1em;
+            padding: 1em;
+            font-size: 0.8em;
+            text-align: center;
+            box-shadow: 0px 0px 8px 3px $color;
+
+            > p {
+
+                color: var(--color);
+            }
+
+            label {
+
+                color: var(--color);
+            }
+        }  
+    }
+}

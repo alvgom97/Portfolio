@@ -1,191 +1,171 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 :root {
-    --background: #202020;
-    --color: #B8ACD1;
-  }
+  --background: #202020;
+  --color: #B8ACD1;
+}
 
 * {
-    color: var(--color);
-    font-family: 'Roboto', sans-serif;
+  color: var(--color);
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    background-color: var(--background);
+  background-color: #202020;
+  background-image: url("../img/rainbow.png");
 }
-
-/* Container */
-
-#container {
-    display: grid;
-    grid-template-areas:"title title"
-                        "header header"
-                        "main aside"
-                        "footer footer";
-    grid-template-rows: 1fr 1fr 7fr 1fr;
-    grid-template-columns: 7fr 3fr;
-    height: 100%;
-    width: 100%;
-    background-image: url("../img/rainbow.png");
-    background-repeat: repeat;
+body #container {
+  display: grid;
+  grid-template-areas: "title title" "header header" "main aside" "footer footer";
+  grid-template-rows: 1fr 1fr 7fr 1fr;
+  grid-template-columns: 7fr 3fr;
+  height: 100%;
+  width: 100%;
+  background-repeat: repeat;
 }
-
-/* Header */
-
-#container > h1 {
-    margin: 1em 0 1em 1em;
-    grid-area: title;
+@media (max-width: 720px) {
+  body #container {
+    grid-template-areas: "title" "header" "main" "aside" "footer";
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr;
+  }
 }
-
-header {
-    grid-area: header;
-    background-color: var(--color);
-    display: flex;
-    justify-content: space-around;
-    border-radius: 10px;
-    margin: 0 1em 2em 1em;
+body #container > h1 {
+  margin: 1em 0 1em 1em;
+  grid-area: title;
+  color: #B8ACD1;
 }
-
-header > button {
-
-    background-color: transparent;
-    border: transparent;
-    height: auto;
-    font-weight: bold;
-    font-size: 1.2em;
-    cursor: pointer;
-    outline: none;
-    margin: 0.5em 0;
+body #container header {
+  grid-area: header;
+  background-color: var(--background);
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+  margin: 0 1em 2em 1em;
+  box-shadow: 0px 0px 8px 3px #B8ACD1;
 }
-
-#burger {
+@media (max-width: 720px) {
+  body #container header {
+    flex-direction: column;
+  }
+}
+body #container header > button {
+  background-color: transparent;
+  border: transparent;
+  height: auto;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer;
+  outline: none;
+  margin: 0.5em 0;
+}
+@media (max-width: 720px) {
+  body #container header > button {
     display: none;
+  }
 }
-
-header > button > a {
-    color:var(--background);
-    text-decoration: none;
+body #container header #burger {
+  display: none;
 }
-
-header > button > a:hover {
-    text-shadow: 3px 1px 6px var(--background);
+@media (max-width: 720px) {
+  body #container header #burger {
+    display: block;
+  }
 }
-
-/* Aside */
-
-aside {
-    grid-area: aside;
-    background-color: var(--color);
-    border-radius: 10px;
-    color:var(--background);
-    margin-right: 1em;
-    padding: 0 1em;
+body #container header > button > a {
+  color: var(--color);
+  text-decoration: none;
 }
-
-aside > p {
-    background-color: var(--color);
-    color:var(--background);
+body #container header > button > a:hover {
+  text-shadow: 3px 1px 6px var(--color);
 }
-
-aside > img {
-    float: left;
-    height: 13em;
-    padding: 0 1em 0 0;
+body #container aside {
+  grid-area: aside;
+  background-color: var(--background);
+  border-radius: 10px;
+  color: var(--color);
+  margin-right: 1em;
+  padding: 0 1em;
+  box-shadow: 0px 0px 8px 3px #B8ACD1;
 }
-
-/* Main */
-
-main {
-    grid-area: main;
+@media (max-width: 720px) {
+  body #container aside {
     margin-left: 1em;
-    padding: 0 1em;
-    background-color: rgba(32, 32, 32, 0.6);
-    border-radius: 10px;
-    justify-self: center;
+  }
+}
+body #container aside > p {
+  background-color: var(--background);
+  color: var(--color);
+}
+body #container aside > img {
+  float: left;
+  height: 13em;
+  margin-right: 1em;
+  border-radius: 10px;
+}
+@media (max-width: 980px) {
+  body #container aside > img {
+    height: 8em;
+  }
+}
+@media (max-width: 720px) {
+  body #container aside > img {
+    height: 12em;
+  }
+}
+body #container main {
+  grid-area: main;
+  margin-left: 1em;
+  padding: 0 1em;
+  background-color: rgba(32, 32, 32, 0.6);
+  border-radius: 10px;
+  justify-self: center;
+}
+@media (max-width: 720px) {
+  body #container main {
+    margin-bottom: 1em;
+  }
+}
+body #container main ul {
+  list-style: none;
+}
+@media (max-width: 720px) {
+  body #container main ul {
+    padding: 0;
+  }
+}
+body #container main ul > li {
+  padding: 2em;
+}
+@media (max-width: 720px) {
+  body #container main ul > li {
+    padding: 0.5em;
+  }
+}
+body #container main ul > li::before {
+  content: "➲ ";
+}
+body #container main li > ul > li::before {
+  content: "⤷ ";
+}
+body #container main span {
+  font-weight: bold;
+}
+body #container footer {
+  background-color: var(--background);
+  grid-area: footer;
+  border-radius: 10px 10px 0 0;
+  margin: 2em 1em 0 1em;
+  padding: 1em;
+  font-size: 0.8em;
+  text-align: center;
+  box-shadow: 0px 0px 8px 3px #B8ACD1;
+}
+body #container footer > p {
+  color: var(--color);
+}
+body #container footer label {
+  color: var(--color);
 }
 
-main ul {
-    list-style: none;
-}
-
-main > ul > li {
-    padding: 2em;
-    
-}
-
-main > ul > li::before {
-    content: "➲ ";
-}
-
-main li > ul > li::before {
-    content: "⤷ ";
-}
-
-main span {
-    font-weight: bold;
-}
-
-/* Footer */
-
-footer {
-    background-color: var(--color);
-    grid-area: footer;
-    border-radius: 10px 10px 0 0;
-    margin: 2em 1em 0 1em;
-    padding: 1em;
-    font-size: 0.8em;
-    text-align: center;
-}
-
-footer > p, footer label {
-
-    color:var(--background);
-}
-
-/* Media Queries */
-
-@media(max-width: 980px) {
-
-    aside > img {
-        height: 8em;
-    }
-}
-
-@media(max-width: 720px) {
-
-    #container {
-        display: grid;
-        grid-template-areas:"title"
-                            "header"
-                            "main"
-                            "aside"
-                            "footer";
-        grid-template-rows: repeat(5, 1fr);
-        grid-template-columns: 1fr;
-        height: 100%;
-        width: 100%;
-    }
-
-    header {
-
-        flex-direction: column;
-    }
-
-    header > button {
-        display: none;
-    }
-
-    #burger {
-        display: block;
-    }
-
-
-
-    aside {
-        margin-left: 1em;
-    }
-
-    aside > img {
-        height: 12em;
-    }
-}
+/*# sourceMappingURL=general.css.map */
