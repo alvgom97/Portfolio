@@ -161,11 +161,37 @@ body #container footer {
   text-align: center;
   box-shadow: 0px 0px 8px 3px #B8ACD1;
 }
+body #container footer div {
+  margin: 2em 0 0.5em 0;
+}
 body #container footer > p {
   color: var(--color);
 }
+body #container footer #dark {
+  color: #B8ACD1;
+  background-color: #202020;
+  box-shadow: 0px 0px 8px 3px #B8ACD1;
+}
+body #container footer #dark:hover {
+  text-shadow: 3px 1px 6px #B8ACD1;
+}
+body #container footer #light {
+  color: #202020;
+  background-color: #B8ACD1;
+  box-shadow: 0px 0px 8px 3px #202020;
+}
+body #container footer #light:hover {
+  text-shadow: 3px 1px 6px #202020;
+}
 body #container footer label {
-  color: var(--color);
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5em;
+  border-radius: 10px;
+  margin: 0em 0.8em;
+}
+body #container footer input {
+  display: none;
 }
 
 /*# sourceMappingURL=general.css.map */
