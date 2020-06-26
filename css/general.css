@@ -13,10 +13,11 @@
 body {
   background-color: #202020;
   background-image: url("../img/rainbow.png");
+  margin: 0;
 }
 body #container {
   display: grid;
-  grid-template-areas: "title title" "header header" "main aside" "footer footer";
+  grid-template-areas: "title theme" "header header" "main aside" "footer footer";
   grid-template-rows: 1fr 1fr 7fr 1fr;
   grid-template-columns: 3fr 2fr;
   column-gap: 2em;
@@ -26,15 +27,69 @@ body #container {
 }
 @media (max-width: 720px) {
   body #container {
-    grid-template-areas: "title" "header" "main" "aside" "footer";
+    grid-template-areas: "title" "theme" "header" "main" "aside" "footer";
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: 1fr;
   }
 }
-body #container > h1 {
+body #container #title {
+  margin-top: 0.5em;
+}
+body #container #title h1 {
   margin: 0 0 1em 1em;
   grid-area: title;
   color: #B8ACD1;
+}
+@media (max-width: 720px) {
+  body #container #title h1 {
+    margin: 0 0 0.5em 1em;
+  }
+}
+@media (max-width: 720px) {
+  body #container #title {
+    justify-self: center;
+  }
+}
+body #container #theme {
+  justify-self: center;
+  margin-top: 1em;
+}
+body #container #theme div {
+  grid-area: theme;
+  width: fit-content;
+}
+body #container #theme #dark {
+  color: #B8ACD1;
+  text-shadow: 3px 1px 6px #B8ACD1;
+}
+body #container #theme #dark:hover {
+  text-shadow: 3px 1px 6px #B8ACD1;
+}
+body #container #theme #light {
+  color: #B8ACD1;
+  text-shadow: 3px 1px 6px #202020;
+}
+body #container #theme #light:hover {
+  text-shadow: 3px 1px 6px #202020;
+}
+body #container #theme label {
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5em;
+  border-radius: 10px;
+  margin: 0em 0.8em;
+}
+body #container #theme label svg {
+  height: 2em;
+  fill: #B8ACD1;
+}
+body #container #theme input {
+  display: none;
+}
+@media (max-width: 720px) {
+  body #container #theme {
+    margin: 0 0 1.2em 0;
+  }
 }
 body #container header {
   grid-area: header;
@@ -87,7 +142,7 @@ body #container aside {
   color: var(--color);
   margin-right: 1em;
   padding: 0 1em;
-  box-shadow: 0px 0px 8px 3px #B8ACD1;
+  height: fit-content;
 }
 @media (max-width: 720px) {
   body #container aside {
@@ -95,7 +150,7 @@ body #container aside {
   }
 }
 body #container aside > p {
-  background-color: var(--background);
+  background-color: transparent;
   color: var(--color);
 }
 body #container aside > img {
@@ -103,6 +158,7 @@ body #container aside > img {
   height: 13em;
   margin: 0 1em 0.5em 0;
   border-radius: 10px;
+  background-color: transparent;
 }
 @media (max-width: 1080px) {
   body #container aside > img {
@@ -159,42 +215,12 @@ body #container footer {
   grid-area: footer;
   border-radius: 10px 10px 0 0;
   margin: 2em 1em 0 1em;
-  padding-bottom: 1em;
   font-size: 0.8em;
   text-align: center;
   box-shadow: 0px 0px 8px 3px #B8ACD1;
 }
-body #container footer div {
-  margin: 1.5em 0 0.5em 0;
-}
 body #container footer > p {
   color: var(--color);
-}
-body #container footer #dark {
-  color: #B8ACD1;
-  background-color: #202020;
-  box-shadow: 0px 0px 8px 3px #B8ACD1;
-}
-body #container footer #dark:hover {
-  text-shadow: 3px 1px 6px #B8ACD1;
-}
-body #container footer #light {
-  color: #202020;
-  background-color: #B8ACD1;
-  box-shadow: 0px 0px 8px 3px #202020;
-}
-body #container footer #light:hover {
-  text-shadow: 3px 1px 6px #202020;
-}
-body #container footer label {
-  cursor: pointer;
-  user-select: none;
-  padding: 0.5em;
-  border-radius: 10px;
-  margin: 0em 0.8em;
-}
-body #container footer input {
-  display: none;
 }
 
 /*# sourceMappingURL=general.css.map */
