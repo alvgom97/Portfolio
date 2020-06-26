@@ -18,7 +18,8 @@ body #container {
   display: grid;
   grid-template-areas: "title title" "header header" "main aside" "footer footer";
   grid-template-rows: 1fr 1fr 7fr 1fr;
-  grid-template-columns: 7fr 3fr;
+  grid-template-columns: 3fr 2fr;
+  column-gap: 2em;
   height: 100%;
   width: 100%;
   background-repeat: repeat;
@@ -31,7 +32,7 @@ body #container {
   }
 }
 body #container > h1 {
-  margin: 1em 0 1em 1em;
+  margin: 0 0 1em 1em;
   grid-area: title;
   color: #B8ACD1;
 }
@@ -100,10 +101,10 @@ body #container aside > p {
 body #container aside > img {
   float: left;
   height: 13em;
-  margin-right: 1em;
+  margin: 0 1em 0.5em 0;
   border-radius: 10px;
 }
-@media (max-width: 980px) {
+@media (max-width: 1080px) {
   body #container aside > img {
     height: 8em;
   }
@@ -120,6 +121,7 @@ body #container main {
   background-color: rgba(32, 32, 32, 0.6);
   border-radius: 10px;
   justify-self: center;
+  height: fit-content;
 }
 @media (max-width: 720px) {
   body #container main {
@@ -128,6 +130,7 @@ body #container main {
 }
 body #container main ul {
   list-style: none;
+  padding: 0;
 }
 @media (max-width: 720px) {
   body #container main ul {
@@ -135,7 +138,7 @@ body #container main ul {
   }
 }
 body #container main ul > li {
-  padding: 2em;
+  padding: 0.5em 1em;
 }
 @media (max-width: 720px) {
   body #container main ul > li {
@@ -156,13 +159,13 @@ body #container footer {
   grid-area: footer;
   border-radius: 10px 10px 0 0;
   margin: 2em 1em 0 1em;
-  padding: 1em;
+  padding-bottom: 1em;
   font-size: 0.8em;
   text-align: center;
   box-shadow: 0px 0px 8px 3px #B8ACD1;
 }
 body #container footer div {
-  margin: 2em 0 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
 }
 body #container footer > p {
   color: var(--color);
