@@ -14,6 +14,7 @@ const loadTheme = () => {
         }
     } else {
         localStorage.setItem("theme", "dark");
+        setDarkTheme();
     }
 };
 
@@ -62,5 +63,49 @@ document.getElementById("dark").addEventListener("click", function() {
     setDarkTheme();
     persistTheme("dark");
 });
+
+const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+if(document.title === "Home"){
+
+    document.getElementById("sendForm").addEventListener("click", function(){
+
+        const inputs = document.querySelectorAll("main ul input");
+        const textarea = document.querySelector("main ul textarea");
+    
+        let filled = true;
+    
+        let message = "Please, fill the following fields:  \n";
+    
+        for (const i of inputs) {
+            
+            if(i.value.length === 0){
+                filled = false;
+                message += "- " + capitalize(i.name) + " \n";
+            }
+        }
+    
+        if(textarea.value.length === 0){
+    
+            message += "- " + capitalize(textarea.name);
+        }
+    
+        if(message.length > 37){
+            alert(message);
+        } else {
+            alert("Thank you for your message! \nYou will receive an answer as soon as possible.");
+            for (const i of inputs) {
+            
+                i.value = ""; 
+            }
+    
+            textarea.value = "";
+        }
+    });
+}
+
+
 
 loadTheme();

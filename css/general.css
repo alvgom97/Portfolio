@@ -13,14 +13,15 @@
 body {
   background-color: #202020;
   background-image: url("../img/rainbow.png");
-  margin: 0;
+  margin: 1em 0 0 0;
 }
 body #container {
   display: grid;
   grid-template-areas: "title theme" "header header" "main aside" "footer footer";
-  grid-template-rows: 1fr 1fr 7fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 4fr 0.5fr;
   grid-template-columns: 3fr 2fr;
   column-gap: 2em;
+  row-gap: 1em;
   height: 100%;
   width: 100%;
   background-repeat: repeat;
@@ -28,35 +29,37 @@ body #container {
 @media (max-width: 720px) {
   body #container {
     grid-template-areas: "title" "theme" "header" "main" "aside" "footer";
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 0.3fr) repeat(2, 1fr) 0.2fr;
     grid-template-columns: 1fr;
   }
 }
 body #container #title {
-  margin-top: 0.5em;
+  margin: 0;
+  align-self: center;
 }
 body #container #title h1 {
-  margin: 0 0 1em 1em;
+  margin: 0 0 0 2em;
   grid-area: title;
   color: #B8ACD1;
+  width: fit-content;
+  height: fit-content;
 }
 @media (max-width: 720px) {
   body #container #title h1 {
-    margin: 0 0 0.5em 1em;
+    margin: 0;
   }
 }
 @media (max-width: 720px) {
   body #container #title {
+    margin-top: 0.5em;
     justify-self: center;
   }
 }
 body #container #theme {
-  justify-self: center;
-  margin-top: 1em;
-}
-body #container #theme div {
-  grid-area: theme;
+  margin: 0;
   width: fit-content;
+  align-self: center;
+  justify-self: left;
 }
 body #container #theme #dark {
   color: #B8ACD1;
@@ -88,7 +91,9 @@ body #container #theme input {
 }
 @media (max-width: 720px) {
   body #container #theme {
-    margin: 0 0 1.2em 0;
+    grid-area: theme;
+    justify-self: center;
+    margin: 0.5em 0 0.8em 0;
   }
 }
 body #container header {
@@ -142,11 +147,14 @@ body #container aside {
   color: var(--color);
   margin-right: 1em;
   padding: 0 1em;
-  height: fit-content;
+  align-self: center;
+  width: 13em;
+  justify-self: center;
 }
 @media (max-width: 720px) {
   body #container aside {
-    margin-left: 1em;
+    margin: 0 0.5em 0 0.5em;
+    padding: 0 1em;
   }
 }
 body #container aside > p {
@@ -178,15 +186,17 @@ body #container main {
   border-radius: 10px;
   justify-self: center;
   height: fit-content;
+  align-self: center;
 }
 @media (max-width: 720px) {
   body #container main {
-    margin-bottom: 1em;
+    margin: 0 0.5em 1em 0.5em;
+    padding: 0 0.5em;
   }
 }
 body #container main ul {
   list-style: none;
-  padding: 0;
+  padding: 1em 0;
 }
 @media (max-width: 720px) {
   body #container main ul {
@@ -194,7 +204,7 @@ body #container main ul {
   }
 }
 body #container main ul > li {
-  padding: 0.5em 1em;
+  padding: 0.8em 1em;
 }
 @media (max-width: 720px) {
   body #container main ul > li {
@@ -204,8 +214,33 @@ body #container main ul > li {
 body #container main ul > li::before {
   content: "➲ ";
 }
+body #container main ul input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color);
+  outline: none;
+  width: 10em;
+  width: -webkit-fill-available;
+}
+body #container main ul button {
+  background-color: transparent;
+  justify-self: center;
+  font-size: 1em;
+  border: none;
+  font-weight: bold;
+}
+body #container main ul textarea {
+  background-color: transparent;
+  border: none;
+  border: thin solid var(--color);
+  width: 10em;
+  width: -webkit-fill-available;
+}
 body #container main li > ul > li::before {
   content: "⤷ ";
+}
+body #container main #textarea::before {
+  content: "";
 }
 body #container main span {
   font-weight: bold;
@@ -218,9 +253,16 @@ body #container footer {
   font-size: 0.8em;
   text-align: center;
   box-shadow: 0px 0px 8px 3px #B8ACD1;
+  align-self: end;
 }
 body #container footer > p {
   color: var(--color);
+  padding: 1em;
+}
+@media (max-width: 720px) {
+  body #container footer {
+    font-size: 0.7em;
+  }
 }
 
 /*# sourceMappingURL=general.css.map */
