@@ -235,6 +235,10 @@ body #container main ul textarea {
   border: thin solid var(--color);
   width: 10em;
   width: -webkit-fill-available;
+  min-width: 19em;
+  max-width: 19em;
+  min-height: 2em;
+  max-height: 19em;
 }
 body #container main li > ul > li::before {
   content: "⤷ ";
